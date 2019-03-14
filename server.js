@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const cors = require('cors');
 const compression = require('compression');
@@ -20,6 +21,10 @@ app.use('/files', express.static(`${__dirname}/public`));
 
 app.get('/products/:id', (req, res) => {
   res.sendFile(`${__dirname}/public/index.html`);
+});
+
+app.get('/loaderio-2f049c0ba64a8883a490dd74b1b3cc7b.txt', (req, res) => {
+  res.sendFile(`${__dirname}/public/loaderio-2f049c0ba64a8883a490dd74b1b3cc7b.txt`);
 });
 
 app.get('/*', (req, res) => {
